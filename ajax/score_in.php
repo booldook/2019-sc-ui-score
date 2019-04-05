@@ -15,4 +15,5 @@ $str.= ' "kor": "'.$kor.'", ';
 $str.= ' "eng": "'.$eng.'", ';
 $str.= ' "math": "'.$math.'" ';
 $str.= '}';
+echo $str;
 ?>
