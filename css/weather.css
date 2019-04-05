@@ -1,0 +1,32 @@
+.wraps {width: 100%; height: 100%; background: url(../img/bg/01d.jpg) no-repeat center; background-size: cover; display: flex; justify-content: center; align-items: center;}
+.wrap {width: 90%; max-width: 640px; height: 80%; margin: auto; border: 1px solid #fff; border-radius: 6px; background-color: rgba(0,0,0,0.3);}
+.bts {margin-top: 2rem;}
+
+/***** 런칭페이지 *****/
+.launch {width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+.launch > h1 {color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.7); margin-bottom: 3rem;}
+.launch > .citys {width: 80%; text-align: center;}
+.launch > p {color: #fff;}
+
+/***** 오늘의 날씨 *****/
+.daily {width: 100%; height: 100%; display: none; justify-content: center; align-items: center;}
+.daily > ul {width: 80%; height: 80%; display: flex; flex-direction: column; text-align: center; color: #fff; justify-content: center; align-items: center;}
+.daily > ul > li {padding: 0.5rem;}
+.daily .city {font-size: 3rem;}
+.daily .city > span:nth-child(2) {font-size: 1.5rem; color:beige;}
+.daily .icon {max-width: 180px; padding: 1rem;}
+.daily .temp {font-size: 1.5rem;}
+.daily .temp > :not(:first-child) {font-size: 1.25rem;}
+.daily .main {font-size: 2rem;}
+.daily .desc {font-size: 1.5rem;}
+
+
+/***** 주간날씨 *****/
+.weekly {width: 100%; height: 100%; display: none; flex-direction: column; text-align: center; color: #fff; justify-content: center; align-items: center;}
+.weekly > li {width: 90%; padding: 0.5rem;}
+.weekly > .city {font-size: 3rem;}
+.weekly > .city > span:nth-child(2) {font-size: 1.5rem; color:beige;}
+.weekly > .forecast {height: 60%; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(0,0,0, 0.5); border: 2px solid #ccc; border-radius: 6px;}
+.weekly > .forecast > ul {width: 100%; border-bottom: 1px solid #888; display: flex;}
+.weekly > .forecast > ul > :nth-child(1) {flex: 1 1 25%; padding: 1rem;}
+.weekly > .forecast > ul > :nth-child(2) {flex: 1 1 75%; padding: 1rem; text-align: left;}
