@@ -53,3 +53,15 @@ console.log(hkd.name);
 console.log(hks.name);
 hkd.run();
 hks.run();
+
+
+/* ES6 Class
+class Hong2 {
+	constructor() {
+
+	}
+	fun = () => {
+
+	}
+}
+*/
