@@ -12,7 +12,7 @@ function getScore(res) {
 		var total = Number(std[i].kor) + Number(std[i].eng) + Number(std[i].math);
 		var avg = Math.round(total/3);
 		html 	= '<tr>';
-		html += '<td>'+i+'번</td>';
+		html += '<td>'+std[i].id+'</td>';
 		html += '<td>'+std[i].stdname+'</td>';
 		html += '<td>'+std[i].kor+'점</td>';
 		html += '<td>'+std[i].eng+'점</td>';
@@ -23,6 +23,7 @@ function getScore(res) {
 	}
 }
 //성적 가져오기
+
 $.ajax({
 	url: "score_li.php",
 	type: "post",
@@ -30,3 +31,5 @@ $.ajax({
 	error: err,
 	success: getScore
 });
+
+

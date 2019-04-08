@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>자바스크립트 오브젝트</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script>
+//w3 javascript Object
+var car = {
+	name: "Fiat",
+	model: "500",
+	weight: "850kg",
+	color: "white",
+	start: function(){
+		return this.name + " Start";
+	},
+	drive: function(){
+		return this.name + " Drive";
+	},
+	brake: function(){
+		return this.name + " Brake";
+	},
+	stop: function(){
+		return this.name + " Stop";
+	},
+	반짝반짝: function(){
+		return this.name + " 반짝반짝";
+	}
+};
+console.log(car.start());
+car.drive();
+car.brake();
+car.stop();
+console.log(car.반짝반짝());
+</script>
+</body>
+</html>
