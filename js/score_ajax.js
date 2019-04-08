@@ -28,6 +28,10 @@ function getScore(res) {
 //성적 가져오기
 getList();
 function getList() {
+	$("#stdname").val('');
+	$("#kor").val('');
+	$("#eng").val('');
+	$("#math").val('');
 	$.ajax({
 		url: "score_li.php",
 		type: "post",
