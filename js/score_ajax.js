@@ -22,8 +22,13 @@ function getScore(res) {
 		$(".score_tb tbody").append(html);
 	}
 }
-//성적 가져오기
 
+function putScore(res) {
+	console.log(res);
+}
+
+
+//성적 가져오기
 $.ajax({
 	url: "score_li.php",
 	type: "post",
@@ -32,4 +37,20 @@ $.ajax({
 	success: getScore
 });
 
+
+$("#bt_save").click(function(){
+	$.ajax({
+		type: "post",
+		url: "score_in.php",
+		data: {
+			stdname: $("#stdname").val(),
+			kor: $("#kor").val(),
+			eng: $("#eng").val(),
+			math: $("#math").val()
+		},
+		dataType: "json",
+		success: putScore,
+		error: err
+	});
+});
 

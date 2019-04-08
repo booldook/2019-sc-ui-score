@@ -33,7 +33,7 @@ var hongks = {
 	console.log("ABC!!");
 }());
 
-//제대로된 ES5 자바스크립트 객체
+//제대로된 ES5 자바스크립트 객체(Class)
 var Hong = (function(){
 	// Constructor 생성자
 	function Hong(name, age, gender) {
