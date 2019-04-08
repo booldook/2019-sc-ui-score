@@ -23,9 +23,6 @@ function getScore(res) {
 	}
 }
 
-function putScore(res) {
-	console.log(res);
-}
 
 
 //성적 가져오기
@@ -37,7 +34,10 @@ $.ajax({
 	success: getScore
 });
 
-
+//성적 저장하기
+function putScore(res) {
+	console.log(res);
+}
 $("#bt_save").click(function(){
 	$.ajax({
 		type: "post",
