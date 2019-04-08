@@ -7,6 +7,7 @@ function err(xhr, status, error) {
 // Ajax 성적 리스트 콜백
 function getScore(res) {
 	console.log(res);
+	$(".score_tb tbody").empty();
 	var std = res.student;
 	for(var i in std) {
 		var total = Number(std[i].kor) + Number(std[i].eng) + Number(std[i].math);
@@ -24,20 +25,19 @@ function getScore(res) {
 }
 
 
-
 //성적 가져오기
-$.ajax({
-	url: "score_li.php",
-	type: "post",
-	dataType: "json",
-	error: err,
-	success: getScore
-});
+getList();
+function getList() {
+	$.ajax({
+		url: "score_li.php",
+		type: "post",
+		dataType: "json",
+		error: err,
+		success: getScore
+	});
+}
 
 //성적 저장하기
-function putScore(res) {
-	console.log(res);
-}
 $("#bt_save").click(function(){
 	$.ajax({
 		type: "post",
@@ -49,7 +49,7 @@ $("#bt_save").click(function(){
 			math: $("#math").val()
 		},
 		dataType: "json",
-		success: putScore,
+		success: getList,
 		error: err
 	});
 });
