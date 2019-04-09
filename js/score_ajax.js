@@ -42,20 +42,31 @@ function getList() {
 
 //성적 저장하기
 /*
-url: "",								//문자열
-type: "",								//문자열
-dataType: "",						//문자열
-data: {},								//자바스크립트 객체
-success: function(){},	//함수
-error: function(){}			//함수
+url: "",								//문자열							=> 통신할 대상
+type: "",								//문자열							=> get/post
+dataType: "",						//문자열							=> json, xml, html, txt
+data: {},								//자바스크립트 객체  => 보낼 데이터
+success: function(){},	//함수								=> 함수를 보내고, 통신이 성공하는 시점에서 실행시킨다.
+error: function(){}			//함수								=> 함수를 보내고, 통신이 실패하는 시점에서 실행시킨다.
 */
 var option = {
-	url: "",
-	type: "",
-	dataType: "",
-	data: {},
-	success: function(){},
-	error: function(){}
+	url: "./score_in.php",
+	type: "post",
+	dataType: "json",
+	data: {
+		stdname: $("#stdname").val(),
+		kor: $("#kor").val(),
+		eng: $("#eng").val(),
+		math: $("#math").val()
+	},
+	success: function(res){
+		if(res.code == 200) getList();
+		else alert("데이터 처리에 문제가 있습니다.\n잠시후 다시 시도해 주세요.");
+	},
+	error: function(xhr){
+		console.log(xhr);
+		alert("통신에 문제가 있습니다.\n잠시후 다시 시도해 주세요.");
+	}
 };
 $("#bt_save").click(function(){
 	$.ajax(option);
