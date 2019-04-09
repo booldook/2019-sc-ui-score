@@ -1,9 +1,27 @@
+// Ajax 옵션 설명
+/*
+url: "",								//문자열							=> 통신할 대상
+type: "",								//문자열							=> get/post
+dataType: "",						//문자열							=> json, xml, html, txt
+data: {},								//자바스크립트 객체  => 보낼 데이터
+success: function(){},	//함수								=> 함수를 보내고, 통신이 성공하는 시점에서 실행시킨다.
+error: function(){}			//함수								=> 함수를 보내고, 통신이 실패하는 시점에서 실행시킨다.
+*/
+
+// insert, update, delete 완료 후 사용되는 콜백.
+function callback(res) {
+	if(res.code == 200) getList();
+	else alert("데이터 처리에 문제가 있습니다.\n잠시후 다시 시도해 주세요.");
+}
+
 // Ajax Error 콜백
 function err(xhr, status, error) {
 	console.log(xhr);
 	console.log(status);
 	console.log(error);
 }
+
+
 // Ajax 성적 리스트 콜백
 function getScore(res) {
 	$(".score_tb tbody").empty();
@@ -44,15 +62,7 @@ function getList() {
 	});
 }
 
-//성적 저장하기
-/*
-url: "",								//문자열							=> 통신할 대상
-type: "",								//문자열							=> get/post
-dataType: "",						//문자열							=> json, xml, html, txt
-data: {},								//자바스크립트 객체  => 보낼 데이터
-success: function(){},	//함수								=> 함수를 보내고, 통신이 성공하는 시점에서 실행시킨다.
-error: function(){}			//함수								=> 함수를 보내고, 통신이 실패하는 시점에서 실행시킨다.
-*/
+// 신규성적 저장버튼 클릭시...
 $("#bt_save").click(function(){
 	var option = {
 		url: "score_in.php",
@@ -64,11 +74,7 @@ $("#bt_save").click(function(){
 			eng: $("#eng").val(),
 			math: $("#math").val()
 		},
-		success: function(res){
-			console.log(res);
-			if(res.code == 200) getList();
-			else alert("데이터 처리에 문제가 있습니다.\n잠시후 다시 시도해 주세요.");
-		},
+		success: callback,
 		error: err
 	};
 	$.ajax(option);
@@ -77,7 +83,16 @@ $("#bt_save").click(function(){
 // 성적 삭제하기
 function delData(obj) {
 	var id = $(obj).data("id");
-	console.log(id);
+	if(	confirm("정말로 삭제하시겠습니까?")	) {
+		$.ajax({
+			url: "./score_del.php",
+			type: "post",
+			dataType: "json",
+			data: { id: id },
+			success: callback,
+			error: err
+		});
+	}
 }
 
 // 성적 수정하기
