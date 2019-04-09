@@ -6,7 +6,6 @@ function err(xhr, status, error) {
 }
 // Ajax 성적 리스트 콜백
 function getScore(res) {
-	console.log(res);
 	$(".score_tb tbody").empty();
 	var std = res.student;
 	for(var i in std) {
