@@ -74,5 +74,13 @@ $("#bt_save").click(function(){
 	$.ajax(option);
 });
 
+// 성적 삭제하기
+function delData(obj) {
+	var id = $(obj).data("id");
+	console.log(id);
+}
 
+// 성적 수정하기
+function upData(obj) {
 
+}
