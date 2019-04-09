@@ -7,6 +7,7 @@ $eng = $_POST['eng'];
 $math = $_POST['math'];
 
 $sql = " INSERT INTO score SET kor=$kor, eng=$eng, math=$math, stdname='$stdname' ";
+
 mysqli_query($conn, $sql);
 
 $id = mysqli_insert_id($conn);

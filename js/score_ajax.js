@@ -41,19 +41,24 @@ function getList() {
 }
 
 //성적 저장하기
+/*
+url: "",								//문자열
+type: "",								//문자열
+dataType: "",						//문자열
+data: {},								//자바스크립트 객체
+success: function(){},	//함수
+error: function(){}			//함수
+*/
+var option = {
+	url: "",
+	type: "",
+	dataType: "",
+	data: {},
+	success: function(){},
+	error: function(){}
+};
 $("#bt_save").click(function(){
-	$.ajax({
-		type: "post",
-		url: "score_in.php",
-		data: {
-			stdname: $("#stdname").val(),
-			kor: $("#kor").val(),
-			eng: $("#eng").val(),
-			math: $("#math").val()
-		},
-		dataType: "json",
-		success: getList,
-		error: err
-	});
+	$.ajax(option);
 });
+
 
