@@ -8,6 +8,24 @@ success: function(){},	//함수								=> 함수를 보내고, 통신이 성공�
 error: function(){}			//함수								=> 함수를 보내고, 통신이 실패하는 시점에서 실행시킨다.
 */
 
+// jQuery each();
+/*
+	$td.each(function(i){
+		if(i == 0) {
+			html += '<td>'+$td.eq(i).html()+'</td>';
+		}
+		if(i == 1) {
+			html += '<td><input type="text" class="stdname form-control" value="'+$td.eq(i).html()+'"></td>';
+		}
+		if(i >= 2 && i <= 4) {
+			html += '<td></td>';
+		}
+		else {
+			html += '<td></td>';
+		}
+	});
+	*/
+
 // insert, update, delete 완료 후 사용되는 콜백.
 function callback(res) {
 	if(res.code == 200) getList();
@@ -52,24 +70,18 @@ function getScore(res) {
 function upData(obj) {
 	var $tr = $(obj).parent().parent();
 	var $td = $tr.children("td");
-	var html = '';
-	for(var i in $td) {
-		if(i == 1) {
-			html += '<td><input type="text" class="stdname form-control" value="'+$td.eq(i).html()+'"></td>';
-		}
-		if(i >= 2 && i <= 4) {
-			html += '<td></td>';
-		}
-		else {
-			html += '<td></td>';
-		}
-	}
-	console.log($td.length);
-	$tr.empty();
-	$tr.html(html);
+	$td.eq(1).addClass("up_el").html('<input type="text" class="stdname form-control" value="'+$td.eq(1).html()+'">');
+	$td.eq(2).addClass("up_el").html('<input type="number" class="kor form-control" value="'+$td.eq(2).html().replace("점", "")+'"> 점');
+	$td.eq(3).addClass("up_el").html('<input type="number" class="eng form-control" value="'+$td.eq(3).html().replace("점", "")+'"> 점');
+	$td.eq(4).addClass("up_el").html('<input type="number" class="math form-control" value="'+$td.eq(4).html().replace("점", "")+'"> 점');
+	$td.eq(5).html('');
 	//console.log(n);
+	$(obj).attr("onclick", "upSave(this);");
+	$(obj).removeClass("btn-success").addClass("btn-info").html("적용");
 }
-
+function upSave(obj) {
+	
+}
 
 //성적 가져오기
 getList();
