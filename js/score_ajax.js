@@ -37,12 +37,37 @@ function getScore(res) {
 		html += '<td>'+std[i].math+'점</td>';
 		html += '<td>'+avg+'점</td>';
 		html += '<td>';
-		html += '<i onclick="delData(this);" class="fas fa-trash-alt pointer" data-id="'+std[i].id+'"></i> ';
-		html += '<i onclick="upData(this);" class="fas fa-wrench pointer" data-id="'+std[i].id+'"></i> ';
+		html += '<button type="button" class="btn btn-success btn-sm" onclick="upData(this);" data-id="'+std[i].id+'">수정</button>&nbsp;';
+		html += '<button type="button" class="btn btn-danger btn-sm" onclick="delData(this);" data-id="'+std[i].id+'">삭제</button>';
+		//html += '<i onclick="delData(this);" class="fas fa-trash-alt pointer" data-id="'+std[i].id+'"></i> ';
+		//html += '<i onclick="upData(this);" class="fas fa-wrench pointer" data-id="'+std[i].id+'"></i> ';
 		html += '</td>';
 		html += '</tr>';
 		$(".score_tb tbody").append(html);
 	}
+}
+
+// 성적 수정하기
+// Iteration : Array, Object
+function upData(obj) {
+	var $tr = $(obj).parent().parent();
+	var $td = $tr.children("td");
+	var html = '';
+	for(var i in $td) {
+		if(i == 1) {
+			html += '<td><input type="text" class="stdname form-control" value="'+$td.eq(i).html()+'"></td>';
+		}
+		if(i >= 2 && i <= 4) {
+			html += '<td></td>';
+		}
+		else {
+			html += '<td></td>';
+		}
+	}
+	console.log($td.length);
+	$tr.empty();
+	$tr.html(html);
+	//console.log(n);
 }
 
 
@@ -95,7 +120,4 @@ function delData(obj) {
 	}
 }
 
-// 성적 수정하기
-function upData(obj) {
 
-}

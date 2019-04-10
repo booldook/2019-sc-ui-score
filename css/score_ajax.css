@@ -1,3 +1,4 @@
 .score_in ul {display: flex;}
 .score_in li {flex: 1 1 10%; padding: 0.5rem;}
+.table > tbody > tr > td:last-child {padding: 4px !important;}
 
