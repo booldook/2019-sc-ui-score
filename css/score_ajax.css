@@ -3,6 +3,6 @@
 .table > tbody > tr > td:last-child {padding: 4px !important;}
 .up_el {padding: 2px !important; text-align: center !important;}
 .up_el > .stdname {max-width: 100px !important; display: inline-block !important;}
-.up_el > .kor {max-width: 60px !important; display: inline-block !important;}
-.up_el > .eng {max-width: 60px !important; display: inline-block !important;}
-.up_el > .math {max-width: 60px !important; display: inline-block !important;}
+.up_el > .kor {max-width: 70px !important; display: inline-block !important;}
+.up_el > .eng {max-width: 70px !important; display: inline-block !important;}
+.up_el > .math {max-width: 70px !important; display: inline-block !important;}

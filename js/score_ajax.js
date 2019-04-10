@@ -80,7 +80,26 @@ function upData(obj) {
 	$(obj).removeClass("btn-success").addClass("btn-info").html("적용");
 }
 function upSave(obj) {
-	
+	var $tr = $(obj).parent().parent();
+	var id = $(obj).data("id");
+	var stdname = $tr.find(".stdname").val();
+	var kor = $tr.find(".kor").val();
+	var eng = $tr.find(".eng").val();
+	var math = $tr.find(".math").val();
+	$.ajax({
+		url: "./score_up.php",
+		type: "post",
+		dataType: "json",
+		data: {
+			id: id,
+			stdname: stdname,
+			kor: kor,
+			eng: eng,
+			math: math
+		},
+		success: callback,
+		error: err
+	});
 }
 
 //성적 가져오기
