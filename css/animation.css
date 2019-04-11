@@ -1,0 +1,8 @@
+.stages {margin-top: 2rem; position: relative;}
+.box {width: 200px; height:200px; position: absolute; font-size:2rem; line-height: 200px; text-align: center; color: white;}
+.box:nth-child(1) {left: 0; background-color: greenyellow;}
+.box:nth-child(2) {left: 220px; background-color: cyan;}
+.box:nth-child(3) {left: 440px; background-color: orange;}
+.box:nth-child(4) {left: 660px; background-color: orangered;}
+.box:nth-child(5) {left: 880px; background-color: royalblue;}
+.box:nth-child(6) {left: 0; top: 220px; width: 50px; height: 50px; background-color: royalblue;line-height: 42px;}
