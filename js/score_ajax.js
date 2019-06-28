@@ -87,7 +87,7 @@ function upSave(obj) {
 	var eng = $tr.find(".eng").val();
 	var math = $tr.find(".math").val();
 	$.ajax({
-		url: "./score_up.php",
+		url: "http://booldook2.cafe24.com/score/score_up.php",
 		type: "post",
 		dataType: "json",
 		data: {
@@ -110,7 +110,7 @@ function getList() {
 	$("#eng").val('');
 	$("#math").val('');
 	$.ajax({
-		url: "score_li.php",
+		url: "http://booldook2.cafe24.com/score/score_li.php",
 		type: "post",
 		dataType: "json",
 		error: err,
@@ -121,7 +121,7 @@ function getList() {
 // 신규성적 저장버튼 클릭시...
 $("#bt_save").click(function(){
 	var option = {
-		url: "score_in.php",
+		url: "http://booldook2.cafe24.com/score/score_in.php",
 		type: "post",
 		dataType: "json",
 		data: {
@@ -141,7 +141,7 @@ function delData(obj) {
 	var id = $(obj).data("id");
 	if(	confirm("정말로 삭제하시겠습니까?")	) {
 		$.ajax({
-			url: "./score_del.php",
+			url: "http://booldook2.cafe24.com/score/score_del.php",
 			type: "post",
 			dataType: "json",
 			data: { id: id },
